@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vishal  Neon Portfolio</title>
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Arial;}
+body{background:#050014;color:white;overflow-x:hidden;transition:0.4s;}
+
+/* THEME MODES */
+body.light{background:#f5f5f5;color:#111;}
+body.light .section{background:white;color:#111;border-color:#ddd;}
+body.light .neon-btn{border-color:#111;color:#111;}
+
+body.neon{background:linear-gradient(135deg,#0a001a,#110033,#1a004d,#260066);}
+
+/* HEADER */
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;position:sticky;top:0;background:#05001499;backdrop-filter:blur(10px);z-index:10;}
+nav a{margin-left:20px;color:#ccc;text-decoration:none;font-size:15px;transition:0.3s;}
+nav a:hover{color:cyan;}
+.logo{font-size:26px;font-weight:bold;}
+
+/* HERO */
+.hero{display:flex;justify-content:space-between;align-items:center;padding:80px 50px;flex-wrap:wrap;}
+.hero-text{max-width:500px;}
+.gradient{background:linear-gradient(90deg,#ff00ff,#00eaff,#00ff88);background-clip:text;-webkit-background-clip:text;color:transparent;background-size:400%;animation:glow 8s linear infinite;}
+@keyframes glow{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.hero-img{width:300px;height:300px;border-radius:20px;border:2px solid cyan;box-shadow:0 0 25px cyan;object-fit:cover;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%{transform:translateY(0);}50%{transform:translateY(-15px);}100%{transform:translateY(0);}}
+
+/* SOCIAL ICONS */
+.icons a{width:35px;height:35px;display:inline-block;border-radius:50%;margin-right:15px;transition:0.3s;}
+.github{background:url('https://cdn-icons-png.flaticon.com/512/25/25231.png') center/cover;}
+.linkedin{background:url('https://cdn-icons-png.flaticon.com/512/174/174857.png') center/cover;}
+.icons a:hover{transform:scale(1.2);filter:drop-shadow(0 0 10px cyan);} 
+
+/* NEON BUTTON */
+.neon-btn{padding:12px 28px;border-radius:12px;border:2px solid cyan;color:white;background:transparent;cursor:pointer;transition:0.3s;margin-right:10px;font-size:15px;}
+.neon-btn:hover{background:cyan;color:#000;box-shadow:0 0 20px cyan;transform:scale(1.1);}   
+
+/* SECTIONS */
+.section{padding:60px 50px;margin:30px;background:rgba(255,255,255,0.05);border:1px solid cyan;border-radius:20px;backdrop-filter:blur(5px);opacity:0;transform:translateY(40px);transition:0.8s;} 
+.section.show{opacity:1;transform:translateY(0);} 
+
+/* PROJECT CARDS */
+.project{padding:20px;border:1px solid #ffffff33;border-radius:15px;margin-bottom:20px;transition:0.3s;}
+.project:hover{transform:translateY(-5px);box-shadow:0 0 20px cyan;}
+
+/* CONTACT FORM */
+input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:2px solid cyan;background:transparent;color:white;}
+
+/* THEME SWITCHER */
+.theme-box{position:fixed;right:20px;bottom:20px;background:#0009;padding:15px;border-radius:10px;border:1px solid cyan;} 
+.theme-btn{display:block;margin:8px 0;padding:8px 12px;border-radius:6px;border:1px solid cyan;color:white;background:transparent;cursor:pointer;transition:0.3s;}
+.theme-btn:hover{background:cyan;color:#000;}   
+
+/* MOBILE */
+@media(max-width:768px){header{padding:20px;} .hero{padding:40px;} .hero-img{width:220px;height:220px;} }
+</style>
+</head>
+
+<body class="neon">
+
+<!-- PRELOADER -->
+<div id="preloader" style="position:fixed;inset:0;background:#050014;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div class="loader" style="width:60px;height:60px;border:6px solid #222;border-top:6px solid cyan;border-radius:50%;animation:spin 1s linear infinite;"></div>
+</div>
+
+<style>@keyframes spin{0%{transform:rotate(0);}100%{transform:rotate(360deg);} }</style>
+
+<header>
+    <h1 class="logo">Vishal</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>Hi, I'm <span class="gradient">Vishal Kushwah</span></h2>
+<p id="typing" style="font-size:18px;color:cyan;height:30px;"></p>
+<div class="icons">
+            <a href="#" class="github" title="GitHub"></a>
+            <a href="#" class="linkedin" title="LinkedIn"></a>
+        </div><br>
+        <button class="neon-btn" onclick="toProjects()">See Projects</button>
+        <button class="neon-btn" onclick="toContact()">Hire Me</button>
+    </div>
+    <img src="2213cb38-7bd0-4cb7-bc5e-ed815a60e20d.jpeg" class="hero-img">
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I am a BSc Computer Science graduate and skilled web developer with strong experience in company work, freelancing, and open‑source contributions. I work with HTML, CSS, JavaScript, PHP, Laravel, CodeIgniter, Core PHP, MySQL, Git & GitHub. I also have hands‑on experience with Python and API integrations. I enjoy building scalable, fast, and user‑friendly web applications.</p>
+
+    <h3 style="margin-top:25px;">Summary</h3>
+    <p>I have experience working with companies, freelancing on Fiverr, and contributing to open‑source projects. I am continuously improving my skills by learning modern frameworks and backend technologies. I am open to roles like Full‑Stack Developer, Front‑End Developer, Back‑End Developer, or DevOps Engineer.</p>
+
+    <h3 style="margin-top:25px;">Experience</h3>
+    <ul>
+        <li><b>Fiverr</b> — Web Developer (Jan 2025 – Present)</li>
+        <li><b>Freelancer.com</b> — Web Developer (Dec 2024 – Present)</li>
+        <li><b>Free‑Work</b> — Web Developer (Jan 2025 – Feb 2025)</li>
+        <li><b>Open Source Developers Community (OSDC)</b> — Developer (Dec 2024 – Feb 2025)</li>
+        <li><b>Open‑Source Student Developers Club</b> — Developer (Oct 2024 – Feb 2025)</li>
+    </ul>
+
+    <h3 style="margin-top:25px;">Education</h3>
+    <ul>
+        <li><b>BSc Computer Science</b> — CSJMU Kanpur (2024 – 2027)</li>
+        <li><b>12th Science</b> — Mansuhklal Sarvoday Inter College (2024)</li>
+        <li><b>10th Science</b> — Mansuhklal Sarvoday Inter College (2022)</li>
+    </ul>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>Neeraj Telecom – Phone Accessories Website</h3>
+        <p>Fully responsive mobile shop website.</p>
+        <a href="https://vishalkushwahacoder.github.io/Neeraj-telecom/#services" style="color:cyan">Visit Project</a>
+    </div>
+
+    <div class="project">
+        <h3>AI Profile Photo Generator</h3>
+        <p>AI-powered profile image generator.</p>
+    </div>
+
+    <div class="project">
+        <h3>Background Remover</h3>
+        <p>Client-side image background remover.</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <form>
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button class="neon-btn" style="margin-top:10px;">Send</button>
+    </form>
+</section>
+
+<!-- PORTFOLIO GALLERY -->
+<section id="gallery" class="section">
+  <h2>Portfolio Gallery</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px;">
+    
+    <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?w=600" style="width:100%;border-radius:12px;cursor:pointer;transition:0.3s;" class="gal">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" style="width:100%;border-radius:12px;cursor:pointer;transition:0.3s;" class="gal">
+    <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?w=600" style="width:100%;border-radius:12px;cursor:pointer;transition:0.3s;" class="gal">
+</div>
+</section>
+</section>
+
+<!-- THEME SWITCHER -->
+<div class="theme-box">
+    <button class="theme-btn" onclick="setTheme('light')">Light</button>
+    <button class="theme-btn" onclick="setTheme('neon')">Neon</button>
+    <button class="theme-btn" onclick="setTheme('dark')">Dark</button>
+</div>
+
+<script>
+// Smooth scroll buttons
+function toProjects(){ document.querySelector('#projects').scrollIntoView({behavior:'smooth'}); }
+function toContact(){ document.querySelector('#contact').scrollIntoView({behavior:'smooth'}); }
+
+// Scroll reveal
+const sections=document.querySelectorAll('.section');
+const reveal=()=>{
+  sections.forEach(sec=>{ if(sec.getBoundingClientRect().top < window.innerHeight - 100){ sec.classList.add('show'); } });
+};
+window.addEventListener('scroll',reveal); reveal();
+
+// Theme switcher
+function setTheme(t){
+  document.body.classList.remove('light','dark','neon');
+  if(t==='dark') document.body.style.background='#000';
+  document.body.classList.add(t);
+}
+</script>
+
+<script>
+// Preloader hide
+window.onload = ()=>{ document.getElementById('preloader').style.display='none'; };
+
+// Typing animation
+let textArr=["Full-Stack Developer","Freelancer","Problem Solver","Programmer"];let i=0,j=0;let typing=document.getElementById('typing');
+function type(){typing.innerHTML=textArr[i].substring(0,j);j++;if(j>textArr[i].length){j=0;i=(i+1)%textArr.length;}setTimeout(type,150);} type();
+
+// Gallery hover zoom
+const imgs=document.querySelectorAll('.gal');imgs.forEach(img=>{img.addEventListener('mouseover',()=>img.style.transform='scale(1.05)');img.addEventListener('mouseout',()=>img.style.transform='scale(1)');});
+
+// Voice intro
+window.addEventListener('load',()=>{
+  const msg=new SpeechSynthesisUtterance("Hello, welcome to Vishal's portfolio website.");
+  msg.pitch=1;msg.rate=1;msg.volume=1;speechSynthesis.speak(msg);
+});
+</script>
+</body>
+</html>
+
